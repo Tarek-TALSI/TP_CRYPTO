@@ -82,6 +82,107 @@ On key usage qui dans notre cas est Digital Signature ce qui veut dire que la cl
 Un certificat auto-signé est un certificat qui se signe lui-même. Ce qui veut dire que l’émetteur et le sujet sont identiques, et donc  qu'il n’y a pas d’autorité de certification pour garantir son authenticité. C'est donc une application qui n'est vraiment pas appliqué à internet mais uniquement avec des gens de confiances.
 
 
+Exercice4:
+
+4.1) Un bloc Bitcoin contient d’abord un en-tête où on trouve quelques infos techniques comme la version, le hash du bloc d’avant, la racine de Merkle, l’heure indiquée par le mineur, la difficulté et le nonce. Après cet en-tête, on a simplement toutes les transactions du bloc, en commençant par la coinbase qui sert à payer le mineur.
+
+4.2) En général, la taille d’un bloc tourne autour de 1,3 à 2 Mo. La valeure moyenne affiché sur les sites donnés dans le sujet est environ 300B mais apparament ça serait seulement la taille du header. Il y'a bien une limite de taille.
+
+4.3) Un bloc contient en moyenne entre 2 500 transactions. Le nombre exact dépendrai de la taille des transactions en en permettant plus ou moins.
+
+4.4) L’en-tête d’un bloc contient plusieurs champs techniques qui servent à identifier le bloc et à vérifier qu’il est valide. On y trouve : la version du bloc, le hash du bloc précédent, la racine de Merkle qui résume toutes les transactions, l’horodatage indiqué par le mineur, le champ “bits” qui représente la difficulté actuelle, et enfin le nonce, qui est la valeur que les mineurs modifient pour tenter de produire un hash conforme aux règles du réseau.
+
+4.5) Le champ « Previous Block Hash » sert simplement à relier chaque bloc au bloc qui vient juste avant lui. Grâce à ça, tous les blocs s’enchaînent les uns aux autres, ce qui forme la blockchain. Si un seul hash précédent changeait, tous les blocs suivants deviendraient invalides. Ce champ garantit l’intégrité et l’ordre de la chaîne.
+
+4.6) Le nonce est un nombre que les mineurs modifient en boucle quand ils essaient de trouver un hash de bloc qui respecte la difficulté du réseau. Comme le hash dépend de ce nonce, ils le changent à chaque essai afin de produire un nouveau hash. Une fois qu'un nonce compatible est trouvé, le mineur peut proposer un bloc au réseau. le nonce est sur 32 bits.
+
+4.7) Pour créer un nouveau bloc, le mineur commence par rassembler les transactions en attente. Il prépare ensuite l’en-tête du bloc avec le hash du bloc précédent, la racine de Merkle, la date et la difficulté. Il teste ensuite différentes valeurs de nonce jusqu’à trouver un hash qui correspond aux règles du réseau. Une fois trouvé, le bloc est envoyé au réseau et ajouté à la blockchain après validation. Concrètement il doit modifier chaque bit du nonce puis hacher avec SHA-256 jusqu'à ce que le résultat soit valide.
+
+4.8) Le minage, c’est le processus où les mineurs essaient plein de combinaisons pour trouver un hash valide. Il sert à sécuriser la blockchain et à valider les transactions. C’est aussi le moyen par lequel de nouveaux bitcoins sont créés grâce à la récompense du bloc.
+
+4.9) La difficulté indique à quel point il est difficile de trouver un hash qui respecte les règles. Elle s’adapte automatiquement tous les 2016 blocs pour que les nouveaux blocs sortent en moyenne toutes les 10 minutes. Si les mineurs trouvent les blocs trop vite, elle augmente. S’ils mettent trop de temps, elle baisse.
+
+4.10) Je n'ai pas trouvé d'information fiable ni de moyen de calculer le nombre de 0 initiaux. Selon certain site nous aurions entre 18 et 20 0 initiaux.
+
+4.11) La première récompense était de 50 BTC par bloc sachant que la valeur d'un BTC était de quelque centimes
+
+4.12) Le premier bloc, le bloc « genesis » (bloc #0), est particulier : il est le tout premier bloc de la chaîne, il ne référence aucun bloc précédent (puisqu’il n’y en a pas).
+De plus, la récompense de ce bloc est considérée comme non dépensable, ce qui rend le bloc “hors-norme” comparé aux blocs suivants. 
+
+4.13) Le message contenu dans le bloc génésis est:
+"The Times 03/Jan/2009 Chancellor on brink of second bailout for banks"
+
+4.14) Après ce premier halving, la récompense par bloc est passée de 50 BTC à 25 BTC.
+
+4.16) Un halving se produit tous les 210 000 blocs selon le protocole de Bitcoin. 
+
+4.17) Puisqu’en moyenne un bloc est créé toutes les 10 minutes, 210 000 blocs représentent 1460 jours. Donc, un halving a lieu en moyenne tous les 1460 jours
+
+4.18) Jusqu’à maintenant, il y a déjà eu quatre halving. 
+
+4.19) La récompense actuelle par bloc est de 3.125 BTC. 
+
+4.20/21) Si on part du principe qu'un bloc se complète en 10 minutes pile, on 525 960 minutes en 1 ans donc 52 596 blocs/an. Connaissant la production par ans, ils nout faut savoir le nombre maximum de bitcoin possible pour savoir à quelle date. 
+Sachant que à chaque halving(tout les 210 000 blocs), on divise la récompense par 2 et qu'on commence à 50 BTC, nous avons une suite géométrique de raison 1/2. Cette converge vers 21 millions qui est donc une valeur assymptotique. Connaissant cette limite il faut donc 48 000 jours. La limite sera donc atteinte en 2140.
+
+4.22) Le temps moyen ciblé entre deux blocs dans Bitcoin est d’environ 10 minutes.
+
+4.23) C'est à ça que sert la difficulté. Lorsque que le trafic sera très grand, la difficulté sera aggrandie et inversement pour "garantir" un temps moyen de 10 minutes.
+
+4.24) La difficulté est réajustée tous les 2016 blocs, soit environ tous les 14 jours (2016 × 10 minutes = 20 160 minutes ≈ 14 jours).
+
+4.25) Si la puissance de calcul du réseau double, les blocs seront trouvés théoriquement deux fois plus vite donc 5 min. En revanche au prochain ajustement de la difficulté la moyenne sera ramené à 10 minutes pas bloc comme convenu.
+
+4.26)Ajouter un zéro supplémentaire dans le hash cible correspond à diviser la cible par 16.Comme le hash est aléatoire, il faudrait donc 16 fois plus de puissance de calcul pour trouver un bloc valide avec ce zéro supplémentaire.
+
+4.27) Il faut attendre plusieurs confirmations pour être sûr qu’une transaction est définitive, car la blockchain peut subir de petits forks temporaires. Plus il y a de confirmations, plus il devient improbable qu’un bloc contenant la transaction soit réécrit. De manière un peu injuste, on peut trouver une solution qui ne sera jamais validée.
+
+4.28) Pour une transaction importante, il est généralement recommandé d’attendre 6 confirmations, ce qui correspond à environ 1 heure sur Bitcoin.(https://bitcoin.org/fr/vous-devez-savoir?)
+
+4.29)Une attaque des 51 % se produit si un mineur ou un groupe contrôle plus de la moitié de la puissance de calcul du réseau. Dans ce cas, ils pourraient :
+Réécrire des transactions récentes (double dépense)
+Contrôler l’ordre des transactions
+Mais ils ne peuvent pas créer de nouveaux bitcoins à partir de rien ni voler les comptes des autres.
+C’est pourquoi le réseau repose sur un consensus distribué pour rester sécurisé.
 
 
+
+
+
+
+
+
+
+
+
+
+1️⃣ Principe
+
+La récompense par bloc diminue de moitié tous les 210 000 blocs (halving).
+
+Les blocs sont créés en moyenne toutes les 10 minutes.
+
+La quantité de bitcoins minés par bloc tend vers zéro après de nombreux halvings.
+
+2️⃣ Calcul approximatif du temps
+
+1 an ≈ 365,25 jours × 24 h × 60 min = 525 960 minutes
+
+Nombre de blocs par an ≈ 525 960 ÷ 10 ≈ 52 596 blocs/an
+
+Chaque halving se produit tous les 210 000 blocs → 210 000 ÷ 52 596 ≈ 3,99 ≈ 4 ans par halving
+
+3️⃣ Estimation du dernier bitcoin
+
+Le premier bloc a été miné en 2009
+
+On sait qu’il y a un nombre infini de halvings théoriques, mais la somme géométrique converge vers 21 millions → la récompense par bloc devient insignifiante après un très grand nombre de halvings.
+
+Le protocole prévoit que le dernier bitcoin sera créé autour de l’année 2140, soit environ 131 ans après le bloc genesis (2009 + 131 ≈ 2140).
+
+4️⃣ Conclusion
+
+La date de 2140 est une approximation, basée sur le rythme moyen de 10 minutes par bloc et la réduction de moitié continue des récompenses.
+
+Même si le rythme réel peut varier légèrement, cette estimation reste valide pour comprendre le fonctionnement du protocole.
 
