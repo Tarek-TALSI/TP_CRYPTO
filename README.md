@@ -145,44 +145,9 @@ Contrôler l’ordre des transactions
 Mais ils ne peuvent pas créer de nouveaux bitcoins à partir de rien ni voler les comptes des autres.
 C’est pourquoi le réseau repose sur un consensus distribué pour rester sécurisé.
 
+4.30)
 
 
 
 
-
-
-
-
-
-
-
-1️⃣ Principe
-
-La récompense par bloc diminue de moitié tous les 210 000 blocs (halving).
-
-Les blocs sont créés en moyenne toutes les 10 minutes.
-
-La quantité de bitcoins minés par bloc tend vers zéro après de nombreux halvings.
-
-2️⃣ Calcul approximatif du temps
-
-1 an ≈ 365,25 jours × 24 h × 60 min = 525 960 minutes
-
-Nombre de blocs par an ≈ 525 960 ÷ 10 ≈ 52 596 blocs/an
-
-Chaque halving se produit tous les 210 000 blocs → 210 000 ÷ 52 596 ≈ 3,99 ≈ 4 ans par halving
-
-3️⃣ Estimation du dernier bitcoin
-
-Le premier bloc a été miné en 2009
-
-On sait qu’il y a un nombre infini de halvings théoriques, mais la somme géométrique converge vers 21 millions → la récompense par bloc devient insignifiante après un très grand nombre de halvings.
-
-Le protocole prévoit que le dernier bitcoin sera créé autour de l’année 2140, soit environ 131 ans après le bloc genesis (2009 + 131 ≈ 2140).
-
-4️⃣ Conclusion
-
-La date de 2140 est une approximation, basée sur le rythme moyen de 10 minutes par bloc et la réduction de moitié continue des récompenses.
-
-Même si le rythme réel peut varier légèrement, cette estimation reste valide pour comprendre le fonctionnement du protocole.
 
