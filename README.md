@@ -139,13 +139,38 @@ Sachant que à chaque halving(tout les 210 000 blocs), on divise la récompense 
 
 4.28) Pour une transaction importante, il est généralement recommandé d’attendre 6 confirmations, ce qui correspond à environ 1 heure sur Bitcoin.(https://bitcoin.org/fr/vous-devez-savoir?)
 
-4.29)Une attaque des 51 % se produit si un mineur ou un groupe contrôle plus de la moitié de la puissance de calcul du réseau. Dans ce cas, ils pourraient :
-Réécrire des transactions récentes (double dépense)
-Contrôler l’ordre des transactions
-Mais ils ne peuvent pas créer de nouveaux bitcoins à partir de rien ni voler les comptes des autres.
-C’est pourquoi le réseau repose sur un consensus distribué pour rester sécurisé.
+4.29) Une attaque des 51 % se produit lorsqu’un mineur contrôle plus de la moitié de la puissance de calcul du réseau. Dans ce cas, il peut créer une chaîne plus longue que celle du reste du réseau et la faire accepter comme valide. Concrètement, l’attaquant peut miner en secret une chaîne alternative dans laquelle il n’inclut pas certaines de ses propres transactions, par exemple un paiement qu’il a déjà effectué. Pendant ce temps, le reste du réseau continue à accepter la chaîne publique. Si l’attaquant parvient ensuite à publier une chaîne plus longue (donc avec plus de preuve de travail), le réseau l’adopte automatiquement. Les blocs précédents sont alors abandonnés. C'est l'implication d'avoir ce monopole à savoir réécrire l'historique récent. C'est donc primordial que la puissance de calcul du réseau soit répartie entre de nombreux mineurs pour rentre ce type d'attaque très couteuses donc très difficile.
 
-4.30)
+4.30) La fonction de hachage est SHA-256 qui comme vu plus haut dans le TP est très populaire.
+
+4.31) Un hash est SHA-256 est donc de 32 octet soit 256 bits.
+
+4.32) C'est l'entête qui est utilisé comme preuve de travail et non pas l'intégralité des transactions ce qui semble logique.
+
+4.33) Lorsqu'on observe plusieurs hashs de blocs on peut noter qu'ils sont en hexadécimal. Ils font tous la même taille de 64 caractères hexadécimaux.
+
+4.34) La preuve de travail consiste simplement à trouver un hash du bloc qui respecte une contrainte imposée par le réseau donc modifier le nonce dans l'en-tête puis haché jusqu'à obtrenir un hash suffisamment petit comme vu précedement. Grâce à cet effort de calcul, la blockchain est sécurisé et empêche les attaques à moins d'avoir le scénaro du 51%.
+
+4.35) Un bloc est valable mathématiquement si le hash de son en-tête est inférieur ou égal à une valeur cible appelée target. C'est cette valeur que la difficulté impacte comme on a pu le voir. Très rapidement plus la difficulté est grande, plus la target est petite et plus il est compliqué de trouvé un bon hash. Si on devait donner une formule ça serait comme ceci: SHA256(header) < Target.
+
+4.36) Le nombre moyen de hash dépend de la difficulté. On a deja 2^32 qui est le nombre moyen de nonce à tester pour une difficulté de 1. Le vrai nombre est donc 2^32 * difficulté. Nayant pu trouvé la difficulté actuelle je ne peux pas faire ce calcul mais l'idée est la.
+
+Exercice pratique:
+
+J'ai choisi de prendre le bloc 927737 qui a comme hash 00000000000000000000d2ab9b5ba7e4de666a38da3a24e6ee2d50554ac81ffa sachant que le hash précedent est ceci 00000000000000000001b2037f2ce876da458e318962869f9c21ea47d4d159b3. Comme prévu ils sont très différent du à la fonction SHA-256 sauf les 0 au début qui témoigne de l'impact de la difficulté. Ensuite ce bloc à comme Timestamp 2025-12-13 16:48:51 et a 3834 transactions. Il a une taille de 1.57 MB pour une difficulté de 148195306640204.7 avec comme nonce 0x26cb429c. On prend vraiment conscience de la puissance de calcul nécessaire pour trouver toute les combinaisons avec de tel nombre. Enfin la ré compense totale du mineur est de 3,167 BTC avec comme pool de minage F2Pool.
+
+4.37) La structure en chaîne de blocs garantit l’immutabilité des transactions grâce à l’utilisation de hash cryptographiques et au lien entre les blocs. Chaque bloc contient le hash du bloc précédent, ce qui fait que si quelqu’un voulait modifier une transaction passée, il faudrait recalculer tous les hashs des blocs suivants, ce qui demande une puissance de calcul astronomique. Comme le réseau adopte toujours la chaîne ayant la plus grande preuve de travail, une modification locale est pratiquement impossible, ce qui rend l’historique des transactions quasi permanent et fiable à moins d'avoir une puissance de calcul démesuré ou que peut de personne soit présente sur le trafic.
+
+4.38) Bitcoin est un système décentralisé parce qu’il n’y a pas d’autorité centrale qui contrôle les transactions ou émet la monnaie. Le réseau fonctionne grâce à des nœuds distribués qui vérifient et relaient les transactions, et des mineurs qui ajoutent de nouveaux blocs via la preuve de travail. Chacun peut rejoindre le réseau et participer à la validation, ce qui rend le système résistant à la censure et aux attaques, puisque le contrôle n’est pas concentré entre les mains d’un acteur unique. Comme analogie on pourrait penser à une immense projet open-source.
+
+4.39) En prenant des blocs de 1 MB et un bloc toutes les 10 minutes, Bitcoin peut traiter environ 7 transactions par seconde, ce qui est très faible comparé à des systèmes comme Visa qui peuvent atteindre plusieurs milliers de transactions par seconde. Cette lenteur ne limite pas la sécurité du réseau, mais elle restreint la scalabilité, ce qui explique pourquoi des solutions comme le Lightning Network sont nécessaires pour accélérer les paiements sans compromettre la décentralisation.
+
+4.40) La preuve de travail consomme énormément d’électricité parce que les mineurs doivent effectuer des milliards de calculs pour trouver un bloc valide. Cette consommation a un impact environnemental significatif, surtout si elle dépend de sources non renouvelables. 
+Pour réduire cette empreinte, des alternatives comme le Proof of Stake  sont proposées. Dans un système Proof of Stake, les blocs ne sont pas créés en résolvant des calculs complexes comme dans la preuve de travail, mais par un processus de sélection basé sur la quantité de cryptomonnaie détenue par chaque participant, appelé validator. Plus un validateur possède de crypto, plus il a de chances d’être choisi pour créer le bloc suivant. On a donc une économie d'énergie massive car il n'ya plus besoin de calculer des milliards de hashes qui ne servent théoriquement.
+
+4.41) Sur les six derniers mois, le hashrate total du réseau Bitcoin a généralement augmenté, ce qui reflète l’arrivée de nouveaux mineurs ou l’amélioration des équipements. Une augmentation du hashrate rend le réseau plus sûr, car il devient plus difficile pour un attaquant de prendre le contrôle de la chaîne.
+
+
 
 
 
