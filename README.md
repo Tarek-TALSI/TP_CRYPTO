@@ -82,6 +82,14 @@ On key usage qui dans notre cas est Digital Signature ce qui veut dire que la cl
 Un certificat auto-signé est un certificat qui se signe lui-même. Ce qui veut dire que l’émetteur et le sujet sont identiques, et donc  qu'il n’y a pas d’autorité de certification pour garantir son authenticité. C'est donc une application qui n'est vraiment pas appliqué à internet mais uniquement avec des gens de confiances.
 
 
+Exercice 3:
+3.2 la taille trouvé par le code est 21 mais la taille réelle est 7, ce n'est pas un problème, la clé est juste répétée 3 fois.
+3.3 La clé trouvée est donc ENSEAIS (x3).
+3.4 Pour le message déchiffré, on trouve cela : 
+['F', 'E', 'L', 'I', 'C', 'I', 'T', 'A', 'T', 'I', 'O', 'N', 'S', 'P', 'O', 'U', 'R', 'A', 'V', 'O', 'I', 'R', 'T', 'R', 'O', 'U', 'V', 'E', 'L', 'A', 'C', 'L', 'E', 'D', 'E', 'C', 'H', 'I', 'F', 'F', 'R', 'E', 'M', 'E', 'N', 'T', 'V', 'O', 'U', 'S', 'A', 'V', 'E', 'Z', 'R', 'E', 'U', 'S', 'S', 'I', 'C', 'E', 'T', 'E', 'X', 'E', 'R', 'C', 'I', 'C', 'E', 'D', 'E', 'C', 'R', 'Y', 'P', 'T', 'O', 'G', 'R', 'A', 'P', 'H', 'I', 'E', 'F', 'E', 'L', 'I', 'C', 'I', 'T', 'A', 'T', 'I', 'O', 'N', 'S', 'E', 'N', 'C', 'O', 'R', 'E', 'U', 'N', 'E', 'F', 'O', 'I', 'S', 'P', 'O', 'U', 'R', 'V', 'O', 'T', 'R', 'E', 'T', 'R', 'A', 'V', 'A', 'I', 'L', 'R', 'E', 'M', 'A', 'R', 'Q', 'U', 'A', 'B', 'L', 'E', 'V', 'O', 'U', 'S', 'A', 'V', 'E', 'Z', 'F', 'A', 'I', 'T', 'P', 'R', 'E', 'U', 'V', 'E', 'D', 'E', 'P', 'E', 'R', 'S', 'E', 'V', 'E', 'R', 'A', 'N', 'C', 'E', 'E', 'T', 'D', 'E', 'L', 'O', 'G', 'I', 'Q', 'U', 'E', 'P', 'O', 'U', 'R', 'D', 'E', 'C', 'O', 'D', 'E', 'R', 'C', 'E', 'M', 'E', 'S', 'S', 'A', 'G', 'E', 'S', 'E', 'C', 'R', 'E', 'T', 'B', 'R', 'A', 'V', 'O', 'P', 'O', 'U', 'R', 'V', 'O', 'T', 'R', 'E', 'D', 'E', 'T', 'E', 'R', 'M', 'I', 'N', 'A', 'T', 'I', 'O', 'N', 'L', 'A', 'C', 'R', 'Y', 'P', 'T', 'O', 'G', 'R', 'A', 'P', 'H', 'I', 'E', 'E', 'S', 'T', 'U', 'N', 'A', 'R', 'T', 'A', 'N', 'C', 'I', 'E', 'N', 'Q', 'U', 'I', 'R', 'E', 'M', 'O', 'N', 'T', 'E', 'A', 'L', 'A', 'N', 'T', 'I', 'Q', 'U', 'I', 'T', 'E', 'F', 'E', 'L', 'I', 'C', 'I', 'T', 'A', 'T', 'I', 'O', 'N', 'S', 'V', 'O', 'U', 'S', 'M', 'A', 'I', 'T', 'R', 'I', 'S', 'E', 'Z', 'M', 'A', 'I', 'N', 'T', 'E', 'N', 'A', 'N', 'T', 'L', 'E', 'S', 'B', 'A', 'S', 'E', 'S', 'D', 'U', 'C', 'H', 'I', 'F', 'F', 'R', 'E', 'M', 'E', 'N', 'T', 'D', 'E', 'V', 'I', 'G', 'E', 'N', 'E', 'R', 'E', 'C', 'E', 'S', 'Y', 'S', 'T', 'E', 'M', 'E', 'A', 'E', 'T', 'E', 'I', 'N', 'V', 'E', 'N', 'T', 'E', 'A', 'U', 'S', 'E', 'I', 'Z', 'I', 'E', 'M', 'E', 'S', 'I', 'E', 'C', 'L', 'E', 'B', 'R', 'A', 'V', 'O', 'P', 'O', 'U', 'R', 'A', 'V', 'O', 'I', 'R', 'P', 'E', 'R', 'C', 'E', 'C', 'E', 'M', 'Y', 'S', 'T', 'E', 'R', 'E', 'L', 'A', 'C', 'R', 'Y', 'P', 'T', 'A', 'N', 'A', 'L', 'Y', 'S', 'E', 'D', 'E', 'M', 'A', 'N', 'D', 'E', 'D', 'E', 'L', 'A', 'P', 'A', 'T', 'I', 'E', 'N', 'C', 'E', 'F', 'E', 'L', 'I', 'C', 'I', 'T', 'A', 'T', 'I', 'O', 'N', 'S', 'V', 'O', 'U', 'S', 'A', 'V', 'E', 'Z', 'L', 'E', 'S', 'C', 'O', 'M', 'P', 'E', 'T', 'E', 'N', 'C', 'E', 'S', 'N', 'E', 'C', 'E', 'S', 'S', 'A', 'I', 'R', 'E', 'S', 'P', 'O', 'U', 'R', 'C', 'O', 'N', 'T', 'I', 'N', 'U', 'E', 'R', 'D', 'A', 'N', 'S', 'C', 'E', 'T', 'T', 'E', 'V', 'O', 'I', 'E', 'B', 'R', 'A', 'V', 'O', 'E', 'N', 'C', 'O', 'R', 'E']
+aillant retiré les espaces ce n'est pas facile à lire mais le message a un sens donc le deéchiffrage a fonctionné !
+
+
 Exercice4:
 
 4.1) Un bloc Bitcoin contient d’abord un en-tête où on trouve quelques infos techniques comme la version, le hash du bloc d’avant, la racine de Merkle, l’heure indiquée par le mineur, la difficulté et le nonce. Après cet en-tête, on a simplement toutes les transactions du bloc, en commençant par la coinbase qui sert à payer le mineur.
@@ -170,9 +178,12 @@ Pour réduire cette empreinte, des alternatives comme le Proof of Stake  sont pr
 
 4.41) Sur les six derniers mois, le hashrate total du réseau Bitcoin a généralement augmenté, ce qui reflète l’arrivée de nouveaux mineurs ou l’amélioration des équipements. Une augmentation du hashrate rend le réseau plus sûr, car il devient plus difficile pour un attaquant de prendre le contrôle de la chaîne.
 
+Exercice 5:
+Le cipher text est le message chiffré, ici c'est une clé de chiffrement chiffré.
 
+iv est le vecteur d'initialisation, il permet de rendre le chiffrement non déterministe.
 
+PBKDF2 est l'algorithme de chiffrement et il est réaliser itérations fois,
+ici 600000 fois.
 
-
-
-
+Le salt sert à brouiller le hash final de facon à ce qu'une personne ayant une base de donnée avec des hash de mots connu ne puisse par retrouver le mot de passe ou autres messages simplement en comparant les hash.
